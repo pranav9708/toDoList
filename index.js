@@ -1,11 +1,28 @@
+// require express for setting up the express server
 const express = require('express');
-const app = express();
-const port = 8000;
-const expressLayout = require('express-ejs-layout');
 
-app.use(expressLayout);
+//set up port number
+const port = 8000;
+
+///using express
+const app = express();
+
+//importing the database
+const db = require('./config/mongoose');
+
+//importing database Schema
+const toDoList = require('./models/to-do-list');
+
+//using static files
+app.use(express.static("./assets"));
+
+//to use encrypted data
+app.use(express.urlencoded());
+
+//using the route files
 app.use('/',require('./routes'));
 
+//set up the view engine
 app.set('view engine', 'ejs');
 app.set('views','./views');
 
