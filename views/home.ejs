@@ -7,6 +7,41 @@
     <title>ToDoList</title>
 </head>
 <body>
+    <header>
+        <h1>To Do App</h1>
+    </header>
+    <form action="/create-todo" method="GET">
+        <table>
+            <thead>
+                <tr>
+                    <th>DESCRIPTION</tr>
+                    <td><input type="text" name="description" placeholder="What do you need to do" required></td>
+                </tr>
+                <tr>
+                    <th>CATEGORY</th>
+                    <th>DATE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><select name="category"  required>
+                            <option value="none" selected disabled hidden>Choose a category</option>
+                            <option value="personal">PERSONAL</option>
+                            <option value="work">WORK</option>
+                            <option value="school">SCHOOL</option>
+                            <option value="cleaning">CLEANING</option>
+                            <option value="other">OTHER</option>
+                        </select>
+                    </td>
+                    <td><input type="date" name="date" required></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" id="add" value="ADD TASK">ADD TASK</button>
+        <button type="submit" formaction="/delete-todo" id="delete" value="DELETE TASK">DELETE TASK</button>
+    </form>
+    
+
     
 </body>
 </html>

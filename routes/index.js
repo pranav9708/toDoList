@@ -5,4 +5,7 @@ console.log('router loaded');
 
 route.get('/',homeController.home);
 
+route.get('/create-todO',require('./create'));
+route.get('/delete-todo',require('./delete'));
+
 module.exports = route;
