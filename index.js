@@ -19,12 +19,12 @@ app.use(express.static("./assets"));
 //to use encrypted data
 app.use(express.urlencoded());
 
-//using the route files
-app.use('/',require('./routes'));
-
 //set up the view engine
 app.set('view engine', 'ejs');
 app.set('views','./views');
+
+//using the route files
+app.use('/',require('./routes'));
 
 app.listen(port, function(err){
     if(err){

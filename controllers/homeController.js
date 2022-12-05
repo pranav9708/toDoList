@@ -8,6 +8,6 @@ module.exports.home= function(req,res){
                 console.log("error in fetching data from database");
                 return;
             }
-            res.render('home',{task:task});
+            return res.render('home',{task:task});
     })
 }
