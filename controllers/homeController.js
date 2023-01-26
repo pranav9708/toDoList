@@ -1,13 +1,14 @@
-const db= require('../config/mongoose');
+const  Task  = require('../models/task');
 
-const Task= require('../models/to-do-list');
-
-module.exports.home= function(req,res){
-    Task.find({},function(err,task){
-            if(err){
-                console.log("error in fetching data from database");
-                return;
-            }
-            return res.render('home',{task:task});
-    })
-}
+module.exports.home = function(req, res){
+    Task.find({}, function(err, task){
+        if(err){
+            console.log('Error in fetching tasks from db');
+            return;
+        }
+        console.log(task);
+        return res.render('home', {
+            task: task
+        });
+    }
+)}

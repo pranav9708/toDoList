@@ -1,11 +1,19 @@
-const mongoose = require('mongoose');
-mongoose.connect("mongodb://0.0.0.0/toDoList_development");
+//require the library
+const mongoose=require('mongoose');
+
+//connect to the database
+mongoose.connect('mongodb://0.0.0.0:27017/todoTasks');
+
+//aquire the connection
 const db=mongoose.connection;
 
-db.on('error',console.error.bind(console,'Error connecting to MongoDB'));
+//error
+db.on('error',console.error.bind(console,"Error in connecting to MongoDB"));
 
-db.once('open',function(){
-    console.log('Successfully connected to MongoDB');
+//up and running then print the message
+db.once('open', function(){
+    console.log('Connected to Database');
 });
 
-module.exports =db;
+//exporting the database
+module.exports = db;

@@ -1,0 +1,137 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-color: grey;
+    display:flex;
+    font-size: 1.2rem;
+    min-height: 800px;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-container{
+    max-width:600px;
+    width:90%;
+    background-color: #fff;
+    margin:0 auto;
+}
+
+
+::placeholder{
+    color:grey;
+}
+
+.todo-heading h1{
+    text-align: center;
+    color:rgb(54, 54, 54);
+}
+
+.row{
+    display:flex;
+    flex-wrap: wrap;
+    padding:0 1em;
+    font-weight: bold;
+}
+.block{
+    display: block;
+}
+.row input,select,input:focus,select{
+    border:none;
+    outline: none;
+    width:100%;
+}
+
+.todo-details .row div{
+    padding:1em 0;
+}
+
+.col{
+    min-width:100%;
+    border-top: 1px solid grey;
+}
+.col-50{
+    min-width:50%;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+
+}
+
+.col-50 + .col-50{
+    padding-left: 1em !important;
+    border-left:1px solid grey;
+}
+
+
+.btn{
+    padding:0.5em 2em;
+    margin:1em auto;
+}
+
+#col-checkbox{
+    width:min-content;
+}
+
+.view-desc{
+    max-width:70%;
+    padding-left: 1em;
+}
+
+#task-category{
+    margin-left:auto;
+    display:flex;
+    padding:0.25em 0.5em;
+    align-self: center;
+}
+
+.strike{
+    text-decoration: line-through;
+}
+
+.task-list{
+    list-style: none;
+    width:100%;
+    margin:0;
+    padding:1em;
+}
+
+.list-item{
+    margin:1em 0;
+}
+
+#col-checkbox:checked + div{
+    text-decoration: line-through;
+    font-weight: bold;
+}
+
+.personal{
+    background-color: rgb(7, 104, 164);
+    color:#fff;
+}
+
+.work{
+    background-color: blueviolet;
+    color:#fff;
+
+}
+
+.school{
+    background-color: rgb(218, 204, 11);
+    color:#fff;
+
+}
+
+.other{
+    background-color: rgb(255, 123, 0);
+    color:#fff;
+
+}
+
+.cleaning{
+    background-color: rgb(5, 202, 5);
+    color:#fff;
+
+}

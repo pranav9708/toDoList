@@ -1,47 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoList</title>
+    <title>ToDoApp</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <header>
-        <h1>To Do App</h1>
-    </header>
-    <form action="/create-todo" method="GET">
-        <table>
-            <thead>
-                <tr>
-                    <th>DESCRIPTION</tr>
-                    <td><input type="text" name="description" placeholder="What do you need to do" required></td>
-                </tr>
-                <tr>
-                    <th>CATEGORY</th>
-                    <th>DATE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><select name="category"  required>
-                            <option value="none" selected disabled hidden>Choose a category</option>
-                            <option value="personal">PERSONAL</option>
-                            <option value="work">WORK</option>
-                            <option value="school">SCHOOL</option>
-                            <option value="cleaning">CLEANING</option>
-                            <option value="other">OTHER</option>
-                        </select>
-                    </td>
-                    <td><input type="date" name="date" required></td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="submit" id="add" value="ADD TASK">ADD TASK</button>
-        <button type="submit" formaction="/delete-todo" id="delete" value="DELETE TASK">DELETE TASK</button>
-    </form>
-    
 
-    
+<body>
+    <div class="todo-container">
+        <header class="todo-heading">
+            <h1>TODO App</h1>
+        </header>
+        <section class="todo-details box-container">
+            <form class="row" action="/create-task" method="POST">
+                <div class="col">
+                    <span class="block">DESCRIPTION</span>
+                    <input type="text" name="description" placeholder="What do you need to do?" required>
+                </div>
+                <div class="col-50">
+                    <span class="block">CATEGORY</span>
+                    <select name="category" required>
+                        <option class="personal">personal</option>
+                        <option class="work">work</option>
+                        <option class="school">school</option>
+                        <option class="cleaning">cleaning</option>
+                        <option class="other">other</option>
+                    </select>
+                </div>
+                <div class="col-50 input-date">
+                    <span class="block">DUE DATE</span>
+                    <input type="date" name="date" required>
+                </div>
+                <button class="add-btn btn">
+                    Add
+                </button>
+            </form>
+        </section>
+        <section class="section-view">
+            <form class="view-form row" action='/delete-task' method="GET">
+                <ul class="task-list">
+                    <% for(let i of task){ %>
+                        <li>
+                            <div class="col row">
+                                <input class="list-item" id="col-checkbox" type="checkbox" name="<%= i._id %>">
+                                <div class="view-desc list-item">
+                                    <div id="task-description">
+                                        <%= i.description %>
+                                    </div>
+                                    <div id="due-date">
+                                        <%=i.date.toLocaleString('default', { month: 'short' })%>
+                                            <%=i.date.getDate() %>
+                                                <%=i.date.getFullYear() %>
+                                    </div>
+                                </div>
+                                <div id="task-category" class="list-item <%=i.category%>">
+                                    <%=i.category %>
+                                </div>
+                            </div>
+                        </li>
+                        <%}%>
+                </ul>
+
+                <button class="delete-btn btn">
+                    Delete
+                </button>
+            </form>
+        </section>
+    </div>
+    <script src="/js/script.js"></script>
 </body>
+
 </html>
