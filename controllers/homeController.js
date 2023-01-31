@@ -7,6 +7,7 @@ module.exports.home = function(req, res){
             return;
         }
         console.log(task);
+        //sending task back to home ejs file
         return res.render('home', {
             task: task
         });

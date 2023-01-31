@@ -1,3 +1,5 @@
+/* common styles */
+
 *,*::before,*::after{
     box-sizing: border-box;
 }
@@ -25,11 +27,17 @@ body{
     color:grey;
 }
 
+
+/* main-heading */
+
 .todo-heading h1{
     text-align: center;
     color:rgb(54, 54, 54);
+    color:orangered
 }
 
+
+/* create task section  */
 .row{
     display:flex;
     flex-wrap: wrap;
@@ -71,6 +79,8 @@ body{
     margin:1em auto;
 }
 
+/* view task section */
+
 #col-checkbox{
     width:min-content;
 }
@@ -100,13 +110,16 @@ body{
 
 .list-item{
     margin:1em 0;
+    color:maroon;
 }
 
 #col-checkbox:checked + div{
     text-decoration: line-through;
-    font-weight: bold;
+    font-style: italic;
+    color:forestgreen;
 }
 
+/* reusable colors */
 .personal{
     background-color: rgb(7, 104, 164);
     color:#fff;

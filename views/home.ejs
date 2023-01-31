@@ -11,9 +11,13 @@
 
 <body>
     <div class="todo-container">
+
+        <!-- main-heading  -->
         <header class="todo-heading">
             <h1>TODO App</h1>
         </header>
+
+        <!-- create task section  -->
         <section class="todo-details box-container">
             <form class="row" action="/create-task" method="POST">
                 <div class="col">
@@ -39,6 +43,8 @@
                 </button>
             </form>
         </section>
+
+        <!-- view task section  -->
         <section class="section-view">
             <form class="view-form row" action='/delete-task' method="GET">
                 <ul class="task-list">
